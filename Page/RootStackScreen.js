@@ -6,9 +6,11 @@ import SignupScreen from "./SignUpScreen";
 import SendOtpScreen from "./SendOtpScreen";
 import VerifyOtpScreen from "./VerifyOtpScreen";
 import LoginScreen from "./LoginScreen";
-import HomeScreen from "./HomeScreen";
-import HomeScreen1 from "./HomeScreen1"
+//import HomeScreen from "./Tenant/HomeScreen";
+import TenantMainScreen from "./Tenant/TenantMainScreen";
+import HomeScreen1 from "./Landlord/HomeScreen1"
 import ForgotPassword from "./ForgotPassword";
+//import TenantMainScreen from "./Tenant/TenantMainScreen";
 //import LoginPage from "./LoginPage"; // Import your LoginPage
 
 
@@ -27,7 +29,7 @@ export default function RootStackScreen() {
         <Stack.Screen name="VerifyOtp" component={VerifyOtpScreen} />
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
-        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Tenant" component={TenantMainScreen} />
         <Stack.Screen name="Home1" component={HomeScreen1} />
       </Stack.Navigator>
     </NavigationContainer>

@@ -26,10 +26,11 @@ const LoginScreen = () => {
       const data = await response.json();
 
       if (response.ok) {
+        //await AsyncStorage.setItem("userRole", data.role); // Store role in AsyncStorage
         Alert.alert("Success", "Logged in successfully");
 
         if (data.role === "tenant") {
-          navigation.navigate("Home"); // Tenant screen
+          navigation.navigate("Tenant"); // Tenant screen
         } else if (data.role === "landlord") {
           navigation.navigate("Home1"); // Landlord screen
         } else {
