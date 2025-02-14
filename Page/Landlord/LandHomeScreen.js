@@ -17,7 +17,7 @@ const LandHomeScreen = () => {
   ];
 
   return (
-    <ImageBackground source={require('../landlord/assets/landlordbackground.webp')} style={styles.background}>
+    // <ImageBackground source={require('../Landlord/assets/landlordbackground.webp')} style={styles.background}>
       <View style={styles.overlay}> 
         {/* Header */}
         <View style={styles.headerContainer}>
@@ -70,7 +70,7 @@ const LandHomeScreen = () => {
             contentContainerStyle={styles.flatListContainer}
             renderItem={({ item }) => (
               <View style={styles.card}>
-                <Image source={require('../landlord/assets/landlordbackground.webp')} style={styles.cardImage} />
+                {/* <Image source={require('../Landlord/assets/landlordbackground.webp')} style={styles.cardImage} /> */}
                 <Text style={styles.cardTitle}>{item.name}</Text>
                 <Text style={styles.cardStatus}>{item.status}</Text>
               </View>
@@ -79,12 +79,14 @@ const LandHomeScreen = () => {
         </View>
         <TouchableOpacity 
   style={styles.formButton} 
-  onPress={() => navigation.navigate('FormFillingScreen')}
+  onPress={navigation.navigate("LandlordTabs", { screen: "FormFillingScreen" })
+
+}
 >
   <Text style={styles.formButtonText}>Form Filling</Text>
 </TouchableOpacity>
       </View>
-    </ImageBackground>
+    //</ImageBackground>
   );
 };
 

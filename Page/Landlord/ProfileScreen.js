@@ -28,10 +28,10 @@ const ProfileScreen = () => {
 
       {/* Profile Info Section */}
       <View style={styles.profileContainer}>
-        <Image
-          source={require('../landlord/assets/landlordbackground.webp')}
+        {/* <Image
+           source={require('../landlord/assets/landlordbackground.webp')}
           style={styles.profileImage}
-        />
+        /> */}
         <Text style={styles.profileName}>{user.name}</Text>
         <Text style={styles.profileEmail}>{user.email}</Text>
       </View>

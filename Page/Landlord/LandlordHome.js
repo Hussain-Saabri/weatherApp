@@ -2,11 +2,11 @@ import { Ionicons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
-import FormFillingScreen from "../Pages/FormFillingScreen";
-import LandHomeScreen from "../Pages/LandHomeScreen";
-import PaymentScreen from "../Pages/PaymentScreen";
-import ProfileScreen from "../Pages/ProfileScreen";
-import VerifiedTenantsScreen from "../Pages/VerifiedTenantsScreen";
+import FormFillingScreen from "./FormFillingScreen";
+import LandHomeScreen from "./LandHomeScreen";
+import PaymentScreen from "./PaymentScreen";
+import ProfileScreen from "./ProfileScreen";
+import VerifiedTenantsScreen from "./VerifiedTenantsScreen";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();

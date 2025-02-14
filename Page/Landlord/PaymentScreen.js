@@ -69,7 +69,7 @@ const PaymentScreen = () => {
         style={[styles.tenantCard, isSelected && styles.tenantCardSelected]}
         onPress={() => setSelectedTenant(item)}
       >
-        <Image source={require('../landlord/assets/landlordbackground.webp')} style={styles.tenantImage} />
+        <Image source={require('../Landlord/assets/landlordbackground.webp')} style={styles.tenantImage} />
         <Text style={[styles.tenantName, isSelected && styles.tenantNameSelected]}>
           {item.name}
         </Text>
