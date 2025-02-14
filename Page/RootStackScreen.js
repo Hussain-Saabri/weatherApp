@@ -12,7 +12,7 @@ import HomeScreen1 from "./Landlord/HomeScreen1"
 import ForgotPassword from "./ForgotPassword";
 //import TenantMainScreen from "./Tenant/TenantMainScreen";
 //import LoginPage from "./LoginPage"; // Import your LoginPage
-
+import LandlordStack from "./LandlordStack";
 
 const Stack = createStackNavigator();
 
@@ -30,7 +30,7 @@ export default function RootStackScreen() {
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
         <Stack.Screen name="Tenant" component={TenantMainScreen} />
-        <Stack.Screen name="Home1" component={HomeScreen1} />
+        <Stack.Screen name="LandlordStack" component={LandlordStack} />
       </Stack.Navigator>
     </NavigationContainer>
   );

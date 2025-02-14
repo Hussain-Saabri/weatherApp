@@ -32,7 +32,7 @@ const LoginScreen = () => {
         if (data.role === "tenant") {
           navigation.navigate("Tenant"); // Tenant screen
         } else if (data.role === "landlord") {
-          navigation.navigate("Home1"); // Landlord screen
+          navigation.navigate("LandlordStack"); // Landlord screen
         } else {
           Alert.alert("Error", "Invalid user role");
         }
