@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert } from "react-native";
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert,ImageBackground,Button } from "react-native";
 import { RadioButton } from "react-native-paper";
 
 const SignupScreen = ({ navigation }) => {
@@ -38,11 +38,11 @@ const SignupScreen = ({ navigation }) => {
   };
 
   return (
-    // <ImageBackground
-    //   source={require('../assets/icon.png')}
-    //   style={styles.container}
-    //   resizeMode="cover"
-    // >
+    <ImageBackground
+      source={require('../Pubic/TenantsImage/house4.jpg')}
+      style={styles.container}
+      resizeMode="cover"
+    >
 <View style={styles.card}>
         <Text style={styles.title}>Create an Account</Text>
         <Text style={styles.subtitle}>Sign up to get started with our services!</Text>
@@ -63,7 +63,7 @@ const SignupScreen = ({ navigation }) => {
           keyboardType="email-address"
           value={email}
           onChangeText={setEmail}
-          autoCapitalize="none"
+          autoCapitalize="words"
         />
 
         <TextInput
@@ -86,14 +86,14 @@ const SignupScreen = ({ navigation }) => {
                 </View>
             </RadioButton.Group>
             
-      <TouchableOpacity style={styles.button} onPress={handleNext}>
-        <Text style={styles.buttonText}>Next</Text>
-      </TouchableOpacity>
+            <TouchableOpacity style={styles.button} onPress={() => console.log('Next pressed')}>
+  <Text style={styles.buttonText}>Next</Text>
+</TouchableOpacity>
       <TouchableOpacity onPress={() => navigation.navigate('Login')}>
           <Text style={styles.loginText}>Already have an account? Log in</Text>
         </TouchableOpacity>
       </View>
-    //</ImageBackground>
+    </ImageBackground>
       
 
       
@@ -154,6 +154,19 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#800020',
     marginTop: 10,
+  },
+  button: {
+    backgroundColor: '#800080',
+    padding: 10,
+    borderRadius: 5,
+    alignItems: 'center',
+    paddingHorizontal:100,
+    //color:"#800020"
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: 'bold',
   },
 });
 
