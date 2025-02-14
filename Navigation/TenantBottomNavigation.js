@@ -14,9 +14,9 @@ const TenantBottomNavigation = ({ navigation, state }) => {
       onSelect={(index) => navigation.navigate(state.routeNames[index])}
     >
       <BottomNavigationTab icon={homeIcon} title={() => <Text category="label">Home</Text>} />
-      <BottomNavigationTab icon={taxIcon} title={() => <Text category="label">Payment</Text>} />
-      <BottomNavigationTab icon={appIcon} title={() => <Text category="label">Applications</Text>} />
-      <BottomNavigationTab icon={memberIcon} title={() => <Text category="label">On Duty</Text>} />
+      <BottomNavigationTab icon={taxIcon} title={() => <Text category="label">Payment History</Text>} />
+      <BottomNavigationTab icon={appIcon} title={() => <Text category="label">QR Code</Text>} />
+      <BottomNavigationTab icon={memberIcon} title={() => <Text category="label">Profile</Text>} />
     </BottomNavigation>
   );
 };

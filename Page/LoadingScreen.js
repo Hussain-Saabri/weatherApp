@@ -45,11 +45,11 @@ text: {
     marginBottom:10,
     fontSize: 28,
     fontWeight: 'bold',
-    color: '#8B0000',
+    color: '#a1045a',
     textAlign:'center'
   },
   button: {
-    backgroundColor: '#800020',
+    backgroundColor: '#800080',
     width:300,
     marginTop:10,
     borderColor: '#c4c4c4',

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, TouchableOpacity, Alert, StyleSheet } from "react-native";
+import { View, Text, TouchableOpacity, Alert, StyleSheet,ImageBackground } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { Layout, Input, Button } from "@ui-kitten/components";
 import { RadioButton } from "react-native-paper";
@@ -45,10 +45,15 @@ const LoginScreen = () => {
   };
 
   return (
+    <ImageBackground
+          source={require('../Pubic/TenantsImage/house4.jpg')}
+          style={styles.container}
+          resizeMode="cover"
+        >
     <Layout style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.welcomeText}>Welcome Back</Text>
-        <Text style={styles.subtitle}>Log in to your rental account</Text>
+        <Text style={styles.subtitle}>Log in to your smart lease account</Text>
       </View>
 
       <Text style={styles.label}>Enter Email Address</Text>
@@ -70,6 +75,9 @@ const LoginScreen = () => {
         value={password}  // Set the value
         onChangeText={setPassword}  // Update the state when input changes
       />
+      <TouchableOpacity onPress={() => navigation.navigate("ForgotPassword")}>
+        <Text style={styles.forgotPassword}>Forgot Password?</Text>
+      </TouchableOpacity>
 
       <Text style={styles.label}>Select Role:</Text>
       <RadioButton.Group onValueChange={(newRole) => setRole(newRole)} value={role}>
@@ -83,9 +91,7 @@ const LoginScreen = () => {
         </View>
       </RadioButton.Group>
 
-      <TouchableOpacity onPress={() => navigation.navigate("ForgotPassword")}>
-        <Text style={styles.forgotPassword}>Forgot Password?</Text>
-      </TouchableOpacity>
+      
 
       <TouchableOpacity style={styles.button} onPress={handleLogin}>
         <Text style={styles.buttonText}>Login</Text>
@@ -95,20 +101,20 @@ const LoginScreen = () => {
         Don’t have an account?{" "}
         <Text style={styles.link} onPress={() => navigation.navigate("Signup")}>Sign Up</Text>
       </Text>
-    </Layout>
+    </Layout></ImageBackground>
   );
 };
 
 const styles = StyleSheet.create({
-  container: { flex: 1, padding: 20, justifyContent: "center" },
+  container: { flex: 1, padding: 20,paddingVertical:35, justifyContent: "center" },
   header: { alignItems: "center", marginBottom: 20 },
-  welcomeText: { fontSize: 24, fontWeight: "bold" },
+  welcomeText: { fontSize: 24, fontWeight: "bold",color:"#67032f"},
   subtitle: { fontSize: 14, color: "gray", textAlign: "center", marginTop: 5 },
   label: { marginTop: 10, fontWeight: "bold" },
   input: { marginBottom: 10 },
   radioContainer: { flexDirection: "row", alignItems: "center", marginBottom: 5 },
-  forgotPassword: { color: "blue", marginTop: 10, textAlign: "right" },
-  button: { backgroundColor: "blue", padding: 10, borderRadius: 5, alignItems: "center", marginTop: 20 },
+  forgotPassword: { color: "#67032f", marginTop: 10, textAlign: "right" },
+  button: { backgroundColor: "#800080", padding: 10, borderRadius: 5, alignItems: "center", marginTop: 20 },
   buttonText: { color: "white", fontWeight: "bold" },
   footerText: { marginTop: 20, textAlign: "center" },
   link: { color: "blue", fontWeight: "bold" },
@@ -116,126 +122,3 @@ const styles = StyleSheet.create({
 
 export default LoginScreen;
 
-
-// const styles = StyleSheet.create({
-//   container: {
-//     marginTop:100,
-//     padding:20,
-//     flex: 1,
-//     // justifyContent: "center",
-//     // alignItems: "center",
-//     backgroundColor: "#f7f9fc",
-//   },
-//   header: {
-//     // marginBottom: 3,
-//     // flex: 1,
-//     justifyContent: 'center', // Vertically center
-//     alignItems: 'center',     // Horizontally center
-//     paddingHorizontal: 30,    // Add some padding
-//     // backgroundColor: '#fff'
-//   },
-//   subtitle: {
-//   fontSize: 16,
-//   color: '#6c757d',
-//   textAlign: 'center',
-//   marginBottom: 20,
-// },
-// welcomeText: {
-//   fontSize: 24,
-//   marginBottom: 10,
-//   textAlign: 'center',
-// },
-// label: {
-//   fontSize: 16,
-  
-//   textAlign: 'left', // Aligns the text to the left
-//   marginBottom: 5, // Adds spacing below the label
-// },
-//   // title: {
-//   //   fontSize: 28,
-//   //   fontWeight: "bold",
-//   //   marginBottom: 20,
-//   // },
-//   input: {
-//     width: '100%',
-//     marginBottom: 20,
-//     borderRadius: 8, // Rounded corners
-//     borderColor: '#d1d9e6', // Light border color
-//   },
-//   footerText: {
-//     marginTop: 20,
-//     color: '#8F9BB3', // Subtle text color
-//     textAlign: 'center',
-//   },
-//   link: {
-//     color: '#3366FF', // Primary link color
-//     fontWeight: 'bold',
-//   },
-//   optionsContainer: {
-//   flexDirection: 'row',
-//   justifyContent: 'space-between',
-//   alignItems: 'center',
-//   marginTop: 10,
-// },
-// radioContainer: {
-//   flexDirection: 'row', // Align items in a row
-//   alignItems: 'center', // Vertically center items
-//   justifyContent: 'flex-start', // Ensure items start from the left
-//   gap: 10, // Add spacing between elements (React Native 0.71+)
-//   marginBottom: 10,
-// },
-
-// // forgotPassword: {
-// //   fontSize: 14,
-// //   color: '#800020',
-// //   fontWeight: 'bold',
-// //   textDecorationLine: 'underline',
-// //   textAlign: 'right',
-// // },
-
-//   label: {
-//     fontSize: 16,
-//     fontWeight: 'bold',
-//     color: '#333',
-//     marginBottom: 5,
-//     textAlign: 'left',
-//     alignSelf: 'flex-start'
-//   },
-//   input: {
-//     width: '100%',
-//     height: 50,
-//     borderWidth: 1,
-//     borderColor: '#c4c4c4',
-//     borderRadius: 8,
-//     paddingHorizontal: 10,
-//     backgroundColor: '#fff',
-//     marginBottom: 10,
-//   },
-//   forgotPassword: {
-//     color: '#800020',
-//     fontSize: 15,
-//     fontWeight: '700',
-//     textAlign: 'right',
-//     //marginTop: 10,
-//     alignSelf: 'flex-end'
-//   },
-
-//  button: {
-//   borderRadius: 5,
-//   paddingVertical: 10,
-//   paddingHorizontal: 15,
-//   alignItems: 'center',
-//   justifyContent: 'center',
-//   marginVertical: 10, // Adds spacing between buttons
-//     width: '100%',
-//     backgroundColor: '#3366FF', // Primary color
-//     borderColor: 'transparent',
-// },
-//   buttonText: {
-//     color: "white",
-//     fontSize: 18,
-//     fontWeight: "bold",
-//   },
-// });
-
-// export default LoginScreen;
