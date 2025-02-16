@@ -86,7 +86,8 @@ const SignupScreen = ({ navigation }) => {
                 </View>
             </RadioButton.Group>
             
-            <TouchableOpacity style={styles.button} onPress={() => console.log('Next pressed')}>
+            <TouchableOpacity style={styles.button} onPress={handleNext}>
+
   <Text style={styles.buttonText}>Next</Text>
 </TouchableOpacity>
       <TouchableOpacity onPress={() => navigation.navigate('Login')}>

@@ -70,7 +70,7 @@ const HomeScreen = ({navigation}) => {
     {/* Goa Police Verification Card */}
     <TouchableOpacity style={styles.infoCard}>
       <Ionicons name="business-outline" size={30} color="black" style={styles.cardIcon} />
-      <Text style={styles.cardTitle}>Goa Police Verification</Text>
+      <Text style={styles.cardTitle}>Goa Police</Text>
       <Text style={styles.cardDescription}>
         Stay compliant with Goa Police guidelines for tenant verification and rental security.
       </Text>
@@ -79,9 +79,9 @@ const HomeScreen = ({navigation}) => {
     {/* Additional Goa Police Verification Card (Example) */}
     <TouchableOpacity style={styles.infoCard}>
       <Ionicons name="business-outline" size={30} color="black" style={styles.cardIcon} />
-      <Text style={styles.cardTitle}>Goa Police Verification</Text>
+      <Text style={styles.cardTitle}>Goa Police Tenant Verification</Text>
       <Text style={styles.cardDescription}>
-        Stay compliant with Goa Police guidelines for tenant verification and rental security.
+       user Stay connected with Goa Police guidelines for tenant verification and rental security.
       </Text>
     </TouchableOpacity>
   </ScrollView>

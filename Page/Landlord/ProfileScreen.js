@@ -2,7 +2,7 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import React, { useState } from 'react';
 import { Image, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
-const ProfileScreen = () => {
+const ProfileScreen = ({navigation}) => {
   const [isEditing, setIsEditing] = useState(false);
   const [user, setUser] = useState({
     name: "YOO",
@@ -28,10 +28,10 @@ const ProfileScreen = () => {
 
       {/* Profile Info Section */}
       <View style={styles.profileContainer}>
-        <Image
+        {/* <Image
           source={require('../landlord/assets/landlordbackground.webp')}
           style={styles.profileImage}
-        />
+        /> */}
         <Text style={styles.profileName}>{user.name}</Text>
         <Text style={styles.profileEmail}>{user.email}</Text>
       </View>
@@ -75,9 +75,11 @@ const ProfileScreen = () => {
         </Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
+      <TouchableOpacity style={styles.logoutButton}onPress={() => navigation.navigate("loadingScreen")}>
         <Ionicons name="log-out-outline" size={20} color="#fff" />
-        <Text style={styles.logoutButtonText}>Logout</Text>
+        <Text style={styles.logoutButtonText} 
+        //onPress={() => navigation.navigate("loadingScreen")}
+        >Logout</Text>
       </TouchableOpacity>
     </View>
   );
@@ -207,6 +209,39 @@ const styles = StyleSheet.create({
 });
 
 export default ProfileScreen;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // import Ionicons from '@expo/vector-icons/Ionicons';

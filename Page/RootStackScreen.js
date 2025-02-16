@@ -12,7 +12,7 @@ import HomeScreen1 from "./Landlord/HomeScreen1"
 import ForgotPassword from "./ForgotPassword";
 //import TenantMainScreen from "./Tenant/TenantMainScreen";
 //import LoginPage from "./LoginPage"; // Import your LoginPage
-import LandlordStack from "./LandlordStack";
+import LandlordStack from "./Landlord/LandlordStack";
 
 const Stack = createStackNavigator();
 

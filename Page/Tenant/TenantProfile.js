@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 
-const TenantProfile = () => {
+const TenantProfile = ({navigation}) => {
   return (
     <ScrollView contentContainerStyle={styles.container}>
       {/* Back Button */}
@@ -12,7 +12,8 @@ const TenantProfile = () => {
 
       {/* Profile Image */}
       <View style={styles.profileContainer}>
-        <Image source={{ uri: 'https://via.placeholder.com/100' }} style={styles.profileImage} />
+      <Image source={require("../../Pubic/TenantsImage/house.jpeg")} style={styles.profileImage} />
+
         <TouchableOpacity style={styles.editIcon}>
           <Icon name="camera" size={18} color="white" />
         </TouchableOpacity>
@@ -20,7 +21,7 @@ const TenantProfile = () => {
 
       {/* Tenant Name & Phone */}
       <Text style={styles.name}>John Doe</Text>
-      <Text style={styles.phone}>+1 111 467 378 399</Text>
+      <Text style={styles.phone}>+922367890</Text>
 
       {/* Profile Options */}
       <View style={styles.menu}>

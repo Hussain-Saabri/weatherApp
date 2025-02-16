@@ -1,141 +1,141 @@
-import Ionicons from '@expo/vector-icons/Ionicons';
-import { useNavigation } from '@react-navigation/native';
-import React, { useState } from 'react';
-import { FlatList, Image, ImageBackground, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import Ionicons from "@expo/vector-icons/Ionicons";
+import { useNavigation } from "@react-navigation/native";
+import React, { useState } from "react";
+import { FlatList, Image, ImageBackground, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 
 const LandHomeScreen = () => {
   const navigation = useNavigation();
   const [showSearch, setShowSearch] = useState(false);
 
   const verificationRequests = [
-    { id: '1', name: 'John Doe', status: 'Pending', image: 'https://via.placeholder.com/150' },
-    { id: '2', name: 'Jane Smith', status: 'Completed', image: 'https://via.placeholder.com/150' },
-    { id: '3', name: 'Mark Johnson', status: 'Pending', image: 'https://via.placeholder.com/150' },
-    { id: '4', name: 'Mark Johnson', status: 'Pending', image: 'https://via.placeholder.com/150' },
-    { id: '5', name: 'Mark Johnson', status: 'Pending', image: 'https://via.placeholder.com/150' },
-    { id: '6', name: 'Mark Johnson', status: 'Pending', image: 'https://via.placeholder.com/150' },
+    { id: "1", name: "John Doe", status: "Pending", image: "https://via.placeholder.com/150" },
+    { id: "2", name: "Jane Smith", status: "Completed", image: "https://via.placeholder.com/150" },
+    { id: "3", name: "Mark Johnson", status: "Pending", image: "https://via.placeholder.com/150" },
+    { id: "4", name: "Emily Davis", status: "Pending", image: "https://via.placeholder.com/150" },
+    { id: "5", name: "Michael Brown", status: "Pending", image: "https://via.placeholder.com/150" },
   ];
 
   return (
-    <ImageBackground source={require('../landlord/assets/landlordbackground.webp')} style={styles.background}>
-      <View style={styles.overlay}> 
-        {/* Header */}
-        <View style={styles.headerContainer}>
-          <Text style={styles.title}>Landlord Dashboard</Text>
-          <View style={styles.iconContainer}>
-            <TouchableOpacity onPress={() => setShowSearch(!showSearch)}>
-              <Ionicons name="search" size={22} color="white" />
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => navigation.navigate("NotificationLandlord")}>
-              <Ionicons name="notifications" size={22} color="white" />
-            </TouchableOpacity>
-          </View>
+    <View style={styles.overlay}>
+      {/* Header */}
+      <View style={styles.headerContainer}>
+        <Text style={styles.title}>Landlord Dashboard</Text>
+        <View style={styles.iconContainer}>
+          <TouchableOpacity onPress={() => setShowSearch(!showSearch)}>
+            <Ionicons name="search" size={22} color="white" />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate("NotificationLandlord")}>
+            <Ionicons name="notifications" size={22} color="white" />
+          </TouchableOpacity>
         </View>
-
-        {/* Search Bar */}
-        {showSearch && (
-          <TextInput 
-            style={styles.searchInput} 
-            placeholder="Search tenants..." 
-            placeholderTextColor="#777" 
-          />
-        )}
-
-        {/* Stats Section */}
-        <View style={styles.statsContainer}>
-        <TouchableOpacity style={styles.statBox} onPress={()=>navigation.navigate("TenantStatusScreen")}>
-    <Text style={styles.statLabel}>Total Tenants</Text>
-    <Text style={styles.statValue}>10</Text>
-  </TouchableOpacity>
-
-  <TouchableOpacity style={styles.statBox} onPress={()=>navigation.navigate("PendingVerificationScreen")}>
-    <Text style={styles.statLabel}>Pending Verifications</Text>
-    <Text style={styles.statValue}>2</Text>
-  </TouchableOpacity>
-
-  <TouchableOpacity style={styles.statBox} onPress={()=>navigation.navigate("VerifiedTenantsScreen")}>
-    <Text style={styles.statLabel}>Completed Verifications</Text>
-    <Text style={styles.statValue}>8</Text>
-  </TouchableOpacity>
-        </View>
-
-        {/* Verification Requests */}
-        <Text style={styles.sectionTitle}>Verification Requests</Text>
-        <View style={styles.flatListWrapper}> 
-          <FlatList
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            data={verificationRequests}
-            keyExtractor={(item) => item.id}
-            contentContainerStyle={styles.flatListContainer}
-            renderItem={({ item }) => (
-              <View style={styles.card}>
-                <Image source={require('../landlord/assets/landlordbackground.webp')} style={styles.cardImage} />
-                <Text style={styles.cardTitle}>{item.name}</Text>
-                <Text style={styles.cardStatus}>{item.status}</Text>
-              </View>
-            )}
-          />
-        </View>
-        <TouchableOpacity 
-  style={styles.formButton} 
-  onPress={() => navigation.navigate('FormFillingScreen')}
->
-  <Text style={styles.formButtonText}>Form Filling</Text>
-</TouchableOpacity>
       </View>
-    </ImageBackground>
+
+      {/* Search Bar */}
+      {showSearch && <TextInput style={styles.searchInput} placeholder="Search tenants..." placeholderTextColor="#777" />}
+
+      {/* Stats Section */}
+      <View style={styles.statsContainer}>
+        <TouchableOpacity style={styles.statBox} onPress={() => navigation.navigate("TenantStatusScreen")}>
+          <Text style={styles.statLabel}>Total Tenants</Text>
+          <Text style={styles.statValue}>10</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.statBox} onPress={() => navigation.navigate("PendingVerificationScreen")}>
+          <Text style={styles.statLabel}>Pending Verifications</Text>
+          <Text style={styles.statValue}>2</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.statBox} onPress={() => navigation.navigate("VerifiedTenantsScreen")}>
+          <Text style={styles.statLabel}>Completed Verifications</Text>
+          <Text style={styles.statValue}>8</Text>
+        </TouchableOpacity>
+      </View>
+
+      {/* Verification Requests */}
+      <Text style={styles.sectionTitle}>Verification Requests</Text>
+      <View style={styles.flatListWrapper}>
+        <FlatList
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          data={verificationRequests}
+          keyExtractor={(item) => item.id}
+          contentContainerStyle={styles.flatListContainer}
+          renderItem={({ item }) => (
+            <View style={styles.card}>
+              <Text style={styles.cardTitle}>{item.name}</Text>
+              <Text style={styles.cardStatus}>{item.status}</Text>
+            </View>
+          )}
+        />
+      </View>
+
+      {/* Form Button */}
+      <TouchableOpacity style={styles.formButton} onPress={() => navigation.navigate("FormFillingScreen")}>
+
+        <Text style={styles.formButtonText}>Form Filling</Text>
+      </TouchableOpacity>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   background: { flex: 1 },
-  overlay: { flex: 1, backgroundColor: 'rgba(0,0,0,0.6)', paddingHorizontal: 15, paddingTop: 50 },
+  overlay: { flex: 1, backgroundColor: "rgba(0,0,0,0.6)", paddingHorizontal: 15, paddingTop: 50 },
 
   // Header
-  headerContainer: { 
-    flexDirection: 'row', 
-    justifyContent: 'space-between', 
-    alignItems: 'center', 
-    marginBottom: 15 
+  headerContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: 15,
   },
-  title: { fontSize: 24, fontWeight: 'bold', color: 'white', textAlign: 'left' },
-  iconContainer: { flexDirection: 'row', gap: 15 },
+  title: { fontSize: 24, fontWeight: "bold", color: "white", textAlign: "left" },
+  iconContainer: { flexDirection: "row", gap: 15 },
 
   // Search Bar
-  searchInput: { backgroundColor: '#fff', padding: 10, borderRadius: 8, marginBottom: 12, color: '#000' },
+  searchInput: { backgroundColor: "#fff", padding: 10, borderRadius: 8, marginBottom: 12, color: "#000" },
 
   // Stats Section
-  statsContainer: { flexDirection: 'row', justifyContent: 'space-between', marginBottom: 15 ,backgroundColor:"black"},
-  statBox: { flex: 1, padding: 10, backgroundColor: '#fff', borderRadius: 8, alignItems: 'center', marginHorizontal: 4 },
-  statLabel: { fontSize: 12, color: '#444' },
-  statValue: { fontSize: 16, fontWeight: 'bold', color: '#222' },
+  statsContainer: { flexDirection: "row", justifyContent: "space-between", marginBottom: 15, backgroundColor: "black" },
+  statBox: { flex: 1, padding: 10, backgroundColor: "#fff", borderRadius: 8, alignItems: "center", marginHorizontal: 4 },
+  statLabel: { fontSize: 12, color: "#444" },
+  statValue: { fontSize: 16, fontWeight: "bold", color: "#222" },
 
   // Section Title
-  sectionTitle: { fontSize: 18, fontWeight: 'bold', color: 'white', marginBottom: 8 },
+  sectionTitle: { fontSize: 18, fontWeight: "bold", color: "white", marginBottom: 8 },
 
   // FlatList Wrapper (Limits Height)
-  flatListWrapper: { height: 150, marginBottom: 10 }, // Ensures it doesn't take up too much space
+  flatListWrapper: { height: 150, marginBottom: 10 },
   flatListContainer: { paddingVertical: 5 },
 
-  // Card Design (Smaller)
-  card: { backgroundColor: 'white', borderRadius: 8, padding: 8, marginRight: 8, width: 100, alignItems: 'center', shadowColor: '#000', shadowOpacity: 0.2, shadowRadius: 4, elevation: 3 },
-  cardImage: { width: 60, height: 60, borderRadius: 8, marginBottom: 5 }, // Reduced Image Size
-  cardTitle: { fontSize: 12, fontWeight: 'bold', color: '#333' },
-  cardStatus: { fontSize: 10, color: '#555' },
-  // Form Button
-formButton: {
-  backgroundColor: '#007bff',
-  padding: 15,
-  borderRadius: 8,
-  alignItems: 'center',
-  marginTop: 15,
-},
-formButtonText: {
-  color: 'white',
-  fontWeight: 'bold',
-},
+  // Card Design
+  card: {
+    backgroundColor: "white",
+    borderRadius: 8,
+    padding: 8,
+    marginRight: 8,
+    width: 100,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+    elevation: 3,
+  },
+  cardTitle: { fontSize: 12, fontWeight: "bold", color: "#333" },
+  cardStatus: { fontSize: 10, color: "#555" },
 
+  // Form Button
+  formButton: {
+    backgroundColor: "#007bff",
+    padding: 15,
+    borderRadius: 8,
+    alignItems: "center",
+    marginTop: 15,
+  },
+  formButtonText: {
+    color: "white",
+    fontWeight: "bold",
+  },
 });
 
 export default LandHomeScreen;
