@@ -28,7 +28,7 @@ const ProfileScreen = ({navigation}) => {
 
       {/* Profile Info Section */}
       <View style={styles.profileContainer}>
-        {/* <Image
+        <Image
           source={require('../landlord/assets/landlordbackground.webp')}
           style={styles.profileImage}
         /> */}

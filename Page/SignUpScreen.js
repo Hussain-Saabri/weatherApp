@@ -1,12 +1,21 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert,ImageBackground,Button } from "react-native";
+import { 
+  View, Text, TextInput, TouchableOpacity, StyleSheet, Alert, ImageBackground 
+} from "react-native";
 import { RadioButton } from "react-native-paper";
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons"; // Import Icon
 
 const SignupScreen = ({ navigation }) => {
-  const [name, setName] = useState(""); // Fixed typo (setNmae -> setName)
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("tenant");
+  const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
+
+  const validateEmail = (email) => {
+    const emailRegex = /\S+@\S+\.\S+/;
+    return emailRegex.test(email);
+  };
 
   const handleNext = async () => {
     if (!name || !email || !password) {
@@ -14,19 +23,27 @@ const SignupScreen = ({ navigation }) => {
       return;
     }
 
+    if (!validateEmail(email)) {
+      Alert.alert("Error", "Please enter a valid email address.");
+      return;
+    }
+
+    if (password.length < 6) {
+      Alert.alert("Error", "Password must be at least 6 characters long.");
+      return;
+    }
+
     try {
-      const response = await fetch("http://192.168.43.162:5000/register", {
+      const response = await fetch("http://192.168.1.6:5000/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, password, role }), // Sending all required fields
+        body: JSON.stringify({ name, email, password, role }),
       });
 
       const data = await response.json();
 
       if (response.ok) {
         Alert.alert("Success", "User registered successfully");
-
-        // Navigate to OTP screen after successful registration
         navigation.navigate("SendOtp", { email, password, role });
       } else {
         Alert.alert("Error", data.message || "Registration failed");
@@ -39,11 +56,11 @@ const SignupScreen = ({ navigation }) => {
 
   return (
     <ImageBackground
-      source={require('../Pubic/TenantsImage/house4.jpg')}
+      source={require("../Pubic/TenantsImage/house4.jpg")}
       style={styles.container}
       resizeMode="cover"
     >
-<View style={styles.card}>
+      <View style={styles.card}>
         <Text style={styles.title}>Create an Account</Text>
         <Text style={styles.subtitle}>Sign up to get started with our services!</Text>
 
@@ -63,7 +80,7 @@ const SignupScreen = ({ navigation }) => {
           keyboardType="email-address"
           value={email}
           onChangeText={setEmail}
-          autoCapitalize="words"
+          autoCapitalize="none"
         />
 
         <TextInput
@@ -86,8 +103,7 @@ const SignupScreen = ({ navigation }) => {
                 </View>
             </RadioButton.Group>
             
-            <TouchableOpacity style={styles.button} onPress={handleNext}>
-
+            <TouchableOpacity style={styles.button} onPress={() => console.log('Next pressed')}>
   <Text style={styles.buttonText}>Next</Text>
 </TouchableOpacity>
       <TouchableOpacity onPress={() => navigation.navigate('Login')}>
@@ -95,81 +111,78 @@ const SignupScreen = ({ navigation }) => {
         </TouchableOpacity>
       </View>
     </ImageBackground>
-      
-
-      
-    
   );
 };
-
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: "center",
   },
   card: {
-    backgroundColor: 'rgba(255, 255, 255, 0.9)',
+    backgroundColor: "rgba(255, 255, 255, 0.9)",
     borderRadius: 20,
     padding: 20,
     marginHorizontal: 20,
-    alignItems: 'center',
+    alignItems: "center",
     elevation: 5,
   },
   title: {
     fontSize: 24,
-    fontWeight: 'bold',
-    textAlign: 'center',
+    fontWeight: "bold",
+    textAlign: "center",
     marginVertical: 10,
   },
   subtitle: {
     fontSize: 14,
-    color: '#6c757d',
-    textAlign: 'center',
+    color: "#6c757d",
+    textAlign: "center",
     marginBottom: 20,
   },
   input: {
-    width: '100%',
+    width: "100%",
     height: 50,
     borderWidth: 1,
-    borderColor: '#c4c4c4',
+    borderColor: "#c4c4c4",
     borderRadius: 5,
     paddingHorizontal: 15,
     marginBottom: 15,
     fontSize: 16,
-    color: '#000',
+    color: "#000",
   },
-  signupButton: {
-    backgroundColor: '#800020',
-    paddingVertical: 12,
+  passwordContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    borderWidth: 1,
+    borderColor: "#c4c4c4",
     borderRadius: 5,
-    width: '100%',
-    alignItems: 'center',
+    paddingHorizontal: 15,
+    width: "100%",
+    marginBottom: 15,
   },
-  signupText: {
-    color: '#fff',
+  passwordInput: {
+    flex: 1,
+    height: 50,
     fontSize: 16,
-    fontWeight: 'bold',
+    color: "#000",
+  },
+  button: {
+    backgroundColor: "#800080",
+    padding: 12,
+    borderRadius: 5,
+    alignItems: "center",
+    width: "100%",
+  },
+  buttonText: {
+    color: "#fff",
+    fontSize: 16,
+    fontWeight: "bold",
   },
   loginText: {
     fontSize: 14,
-    color: '#800020',
+    color: "#800020",
     marginTop: 10,
   },
-  button: {
-    backgroundColor: '#800080',
-    padding: 10,
-    borderRadius: 5,
-    alignItems: 'center',
-    paddingHorizontal:100,
-    //color:"#800020"
-  },
-  buttonText: {
-    color: '#fff',
-    fontSize: 16,
-    fontWeight: 'bold',
-  },
 });
-
 
 export default SignupScreen;

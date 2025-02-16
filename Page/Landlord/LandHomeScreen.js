@@ -16,19 +16,20 @@ const LandHomeScreen = () => {
   ];
 
   return (
-    <View style={styles.overlay}>
-      {/* Header */}
-      <View style={styles.headerContainer}>
-        <Text style={styles.title}>Landlord Dashboard</Text>
-        <View style={styles.iconContainer}>
-          <TouchableOpacity onPress={() => setShowSearch(!showSearch)}>
-            <Ionicons name="search" size={22} color="white" />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate("NotificationLandlord")}>
-            <Ionicons name="notifications" size={22} color="white" />
-          </TouchableOpacity>
+    <ImageBackground source={require('../landlord/assets/landlordbackground.webp')} style={styles.background}>
+      <View style={styles.overlay}> 
+        {/* Header */}
+        <View style={styles.headerContainer}>
+          <Text style={styles.title}>Landlord Dashboard</Text>
+          <View style={styles.iconContainer}>
+            <TouchableOpacity onPress={() => setShowSearch(!showSearch)}>
+              <Ionicons name="search" size={22} color="white" />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate("NotificationLandlord")}>
+              <Ionicons name="notifications" size={22} color="white" />
+            </TouchableOpacity>
+          </View>
         </View>
-      </View>
 
       {/* Search Bar */}
       {showSearch && <TextInput style={styles.searchInput} placeholder="Search tenants..." placeholderTextColor="#777" />}
@@ -51,30 +52,32 @@ const LandHomeScreen = () => {
         </TouchableOpacity>
       </View>
 
-      {/* Verification Requests */}
-      <Text style={styles.sectionTitle}>Verification Requests</Text>
-      <View style={styles.flatListWrapper}>
-        <FlatList
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          data={verificationRequests}
-          keyExtractor={(item) => item.id}
-          contentContainerStyle={styles.flatListContainer}
-          renderItem={({ item }) => (
-            <View style={styles.card}>
-              <Text style={styles.cardTitle}>{item.name}</Text>
-              <Text style={styles.cardStatus}>{item.status}</Text>
-            </View>
-          )}
-        />
+        {/* Verification Requests */}
+        <Text style={styles.sectionTitle}>Verification Requests</Text>
+        <View style={styles.flatListWrapper}> 
+          <FlatList
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            data={verificationRequests}
+            keyExtractor={(item) => item.id}
+            contentContainerStyle={styles.flatListContainer}
+            renderItem={({ item }) => (
+              <View style={styles.card}>
+                <Image source={require('../landlord/assets/landlordbackground.webp')} style={styles.cardImage} />
+                <Text style={styles.cardTitle}>{item.name}</Text>
+                <Text style={styles.cardStatus}>{item.status}</Text>
+              </View>
+            )}
+          />
+        </View>
+        <TouchableOpacity 
+  style={styles.formButton} 
+  onPress={() => navigation.navigate('FormFillingScreen')}
+>
+  <Text style={styles.formButtonText}>Form Filling</Text>
+</TouchableOpacity>
       </View>
-
-      {/* Form Button */}
-      <TouchableOpacity style={styles.formButton} onPress={() => navigation.navigate("FormFillingScreen")}>
-
-        <Text style={styles.formButtonText}>Form Filling</Text>
-      </TouchableOpacity>
-    </View>
+    </ImageBackground>
   );
 };
 

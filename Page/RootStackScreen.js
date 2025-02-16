@@ -23,7 +23,7 @@ export default function RootStackScreen() {
       screenOptions={{
         headerShown: false, // Hides the header for all screens
       }}>
-      <Stack.Screen name="loadingScreen" component={LoadingScreen} />
+      <Stack.Screen   name="loadingScreen" component={LoadingScreen} />
         <Stack.Screen name="Signup" component={SignupScreen} />
         <Stack.Screen name="SendOtp" component={SendOtpScreen} />
         <Stack.Screen name="VerifyOtp" component={VerifyOtpScreen} />

@@ -37,13 +37,14 @@ const TenantStatusScreen = () => {
   }
 
   return (
-    <View style={styles.container}>
+   
+      
+      <ScrollView contentContainerStyle={styles.scrollContainer}>
+         <View style={styles.container}>
       {/* Header */}
       <View style={styles.header}>
         <Text style={styles.headerText}>Tenant Verification Status</Text>
       </View>
-      
-      <ScrollView contentContainerStyle={styles.scrollContainer}>
         <View style={styles.statusContainer}>
           <View style={styles.statusBox}>
             <Text style={styles.statusCount}>{verifiedCount}</Text>
@@ -67,8 +68,9 @@ const TenantStatusScreen = () => {
             </View>
           )}
         />
+        </View>
       </ScrollView>
-    </View>
+    
   );
 };
 
