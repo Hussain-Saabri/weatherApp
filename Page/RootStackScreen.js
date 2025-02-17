@@ -1,14 +1,14 @@
-import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
+import React from "react";
 import LoadingScreen from "./LoadingScreen";
-import SignupScreen from "./SignUpScreen";
-import SendOtpScreen from "./SendOtpScreen";
-import VerifyOtpScreen from "./VerifyOtpScreen";
 import LoginScreen from "./LoginScreen";
+import SendOtpScreen from "./SendOtpScreen";
+import SignupScreen from "./SignUpScreen";
+import VerifyOtpScreen from "./VerifyOtpScreen";
 //import HomeScreen from "./Tenant/HomeScreen";
 import TenantMainScreen from "./Tenant/TenantMainScreen";
-import HomeScreen1 from "./Landlord/HomeScreen1"
+// import HomeScreen1 from "./Landlord/HomeScreen1"
 import ForgotPassword from "./ForgotPassword";
 //import TenantMainScreen from "./Tenant/TenantMainScreen";
 //import LoginPage from "./LoginPage"; // Import your LoginPage
