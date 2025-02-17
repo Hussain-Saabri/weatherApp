@@ -1,6 +1,6 @@
 import { Button } from '@ui-kitten/components';
 import React from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 
 const LoadingScreen = ({ navigation }) => {
@@ -14,7 +14,7 @@ const LoadingScreen = ({ navigation }) => {
         /> */}
       </TouchableOpacity>
       <Text style={styles.text}>Tenant Trust And Security</Text>
-      <Button style={styles.button} onPress={() => navigation.navigate('Login')}>Log In</Button>
+      <Button style={styles.button} onPress={() => navigation.navigate('LandlordStack')}>Log In</Button>
       <Button style={styles.button} onPress={() => navigation.navigate('Signup')}>Sign Up</Button>
     </View>
   );
