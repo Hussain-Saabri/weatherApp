@@ -8,4 +8,7 @@ A React Native app that shows real-time weather updates based on your location u
 
   ## screenshots
 ![image alt](https://github.com/Hussain-Saabri/weatherApp/blob/79ba52f53b19cb14e360c5a9326219e5040750d3/screenshot.jpg)
+
+
+<img src="(https://github.com/Hussain-Saabri/weatherApp/blob/79ba52f53b19cb14e360c5a9326219e5040750d3/screenshot.jpg)" alt="App Screenshot" width="400"/>
   
